@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="3350" viewBox="0 0 2100 3350">
+<defs><style>.bg{fill:#f3f7fb}.card{fill:white;stroke:#bad0e2;stroke-width:2}.head{fill:#1565a8}.ht{font:700 23px Arial,sans-serif;fill:white}.field{font:18px Arial,sans-serif;fill:#203448}.key{font-weight:700;fill:#075b9a}.title{font:700 34px Arial,sans-serif;fill:#16324a}.sub{font:18px Arial,sans-serif;fill:#557086}.rel{font:16px Arial,sans-serif;fill:#203448}</style></defs>
+<rect class="bg" width="2100" height="3350"/>
+<text x="40" y="55" class="title">Organ Allocation System — ER Diagram</text>
+<text x="40" y="88" class="sub">PK = Primary Key · FK = Foreign Key · UK = Unique Key · Uttarakhand training dataset</text>
+<rect class="card" x="40" y="120" width="657" height="334" rx="10"/>
+<path class="head" d="M50,120 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="58" y="157" class="ht">HOSPITALS</text>
+<text x="60" y="211" class="key">PK hospital_id</text>
+<text x="60" y="245" class="key">UK name</text>
+<text x="60" y="279" class="field">city</text>
+<text x="60" y="313" class="field">address</text>
+<text x="60" y="347" class="field">phone</text>
+<text x="60" y="381" class="field">latitude</text>
+<text x="60" y="415" class="field">longitude</text>
+<text x="60" y="449" class="field">created_at</text>
+<rect class="card" x="721" y="120" width="657" height="164" rx="10"/>
+<path class="head" d="M731,120 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="739" y="157" class="ht">ADMIN_ACCOUNTS</text>
+<text x="741" y="211" class="key">PK admin_id</text>
+<text x="741" y="245" class="key">UK username</text>
+<text x="741" y="279" class="field">password_hash</text>
+<rect class="card" x="1402" y="120" width="657" height="198" rx="10"/>
+<path class="head" d="M1412,120 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="1420" y="157" class="ht">HOSPITAL_ACCOUNTS</text>
+<text x="1422" y="211" class="key">PK account_id</text>
+<text x="1422" y="245" class="key">FK, UK hospital_id</text>
+<text x="1422" y="279" class="key">UK login_id</text>
+<text x="1422" y="313" class="field">password_hash</text>
+<rect class="card" x="40" y="710" width="657" height="232" rx="10"/>
+<path class="head" d="M50,710 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="58" y="747" class="ht">AUTH_SESSIONS</text>
+<text x="60" y="801" class="key">PK token</text>
+<text x="60" y="835" class="field">role</text>
+<text x="60" y="869" class="key">FK admin_id</text>
+<text x="60" y="903" class="key">FK hospital_id</text>
+<text x="60" y="937" class="field">created_at</text>
+<rect class="card" x="721" y="710" width="657" height="334" rx="10"/>
+<path class="head" d="M731,710 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="739" y="747" class="ht">DONORS</text>
+<text x="741" y="801" class="key">PK donor_id</text>
+<text x="741" y="835" class="field">name</text>
+<text x="741" y="869" class="field">age</text>
+<text x="741" y="903" class="field">blood_type</text>
+<text x="741" y="937" class="field">tissue_type</text>
+<text x="741" y="971" class="field">health_notes</text>
+<text x="741" y="1005" class="field">medically_eligible</text>
+<text x="741" y="1039" class="field">created_at</text>
+<rect class="card" x="1402" y="710" width="657" height="368" rx="10"/>
+<path class="head" d="M1412,710 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="1420" y="747" class="ht">ORGANS</text>
+<text x="1422" y="801" class="key">PK organ_id</text>
+<text x="1422" y="835" class="key">FK donor_id</text>
+<text x="1422" y="869" class="field">organ_type</text>
+<text x="1422" y="903" class="field">blood_type</text>
+<text x="1422" y="937" class="key">FK donor_hospital_id</text>
+<text x="1422" y="971" class="field">available_at</text>
+<text x="1422" y="1005" class="field">expires_at</text>
+<text x="1422" y="1039" class="field">viability_notes</text>
+<text x="1422" y="1073" class="field">status</text>
+<rect class="card" x="40" y="1300" width="657" height="504" rx="10"/>
+<path class="head" d="M50,1300 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="58" y="1337" class="ht">RECIPIENTS</text>
+<text x="60" y="1391" class="key">PK recipient_id</text>
+<text x="60" y="1425" class="field">name</text>
+<text x="60" y="1459" class="field">age</text>
+<text x="60" y="1493" class="field">organ_type</text>
+<text x="60" y="1527" class="field">blood_type</text>
+<text x="60" y="1561" class="field">tissue_type</text>
+<text x="60" y="1595" class="field">compatibility_notes</text>
+<text x="60" y="1629" class="field">medical_notes</text>
+<text x="60" y="1663" class="field">urgency_score</text>
+<text x="60" y="1697" class="field">waiting_days</text>
+<text x="60" y="1731" class="key">FK hospital_id</text>
+<text x="60" y="1765" class="field">active</text>
+<text x="60" y="1799" class="field">created_at</text>
+<rect class="card" x="721" y="1300" width="657" height="538" rx="10"/>
+<path class="head" d="M731,1300 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="739" y="1337" class="ht">ORGAN_REQUESTS</text>
+<text x="741" y="1391" class="key">PK request_id</text>
+<text x="741" y="1425" class="key">FK hospital_id</text>
+<text x="741" y="1459" class="key">FK recipient_id (nullable)</text>
+<text x="741" y="1493" class="field">patient_ref</text>
+<text x="741" y="1527" class="field">patient_age</text>
+<text x="741" y="1561" class="field">organ_type</text>
+<text x="741" y="1595" class="field">blood_type</text>
+<text x="741" y="1629" class="field">tissue_type</text>
+<text x="741" y="1663" class="field">urgency_score</text>
+<text x="741" y="1697" class="field">compatibility_notes</text>
+<text x="741" y="1731" class="field">medical_notes</text>
+<text x="741" y="1765" class="field">status</text>
+<text x="741" y="1799" class="field">decision_reason</text>
+<text x="741" y="1833" class="field">created_at / updated_at</text>
+<rect class="card" x="1402" y="1300" width="657" height="470" rx="10"/>
+<path class="head" d="M1412,1300 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="1420" y="1337" class="ht">DONATION_OFFERS</text>
+<text x="1422" y="1391" class="key">PK offer_id</text>
+<text x="1422" y="1425" class="key">FK hospital_id</text>
+<text x="1422" y="1459" class="key">FK organ_id (nullable)</text>
+<text x="1422" y="1493" class="field">donor_ref</text>
+<text x="1422" y="1527" class="field">organ_type</text>
+<text x="1422" y="1561" class="field">blood_type</text>
+<text x="1422" y="1595" class="field">tissue_type</text>
+<text x="1422" y="1629" class="field">health_notes</text>
+<text x="1422" y="1663" class="field">available_at / expires_at</text>
+<text x="1422" y="1697" class="field">status</text>
+<text x="1422" y="1731" class="field">decision_reason</text>
+<text x="1422" y="1765" class="field">created_at</text>
+<rect class="card" x="40" y="1890" width="657" height="300" rx="10"/>
+<path class="head" d="M50,1890 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="58" y="1927" class="ht">ALLOCATIONS</text>
+<text x="60" y="1981" class="key">PK allocation_id</text>
+<text x="60" y="2015" class="key">FK, UK organ_id</text>
+<text x="60" y="2049" class="key">FK recipient_id</text>
+<text x="60" y="2083" class="key">FK hospital_id</text>
+<text x="60" y="2117" class="field">status</text>
+<text x="60" y="2151" class="field">reason</text>
+<text x="60" y="2185" class="field">allocated_at</text>
+<rect class="card" x="721" y="1890" width="657" height="164" rx="10"/>
+<path class="head" d="M731,1890 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="739" y="1927" class="ht">RESOURCE_LOCKS</text>
+<text x="741" y="1981" class="key">PK, FK organ_id</text>
+<text x="741" y="2015" class="key">FK hospital_id</text>
+<text x="741" y="2049" class="field">locked_at</text>
+<rect class="card" x="1402" y="1890" width="657" height="164" rx="10"/>
+<path class="head" d="M1412,1890 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="1420" y="1927" class="ht">HOSPITAL_DISTANCES</text>
+<text x="1422" y="1981" class="key">PK, FK from_hospital_id</text>
+<text x="1422" y="2015" class="key">PK, FK to_hospital_id</text>
+<text x="1422" y="2049" class="field">distance_km</text>
+<rect class="card" x="40" y="2480" width="657" height="266" rx="10"/>
+<path class="head" d="M50,2480 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="58" y="2517" class="ht">NOTIFICATIONS</text>
+<text x="60" y="2571" class="key">PK notification_id</text>
+<text x="60" y="2605" class="key">FK hospital_id</text>
+<text x="60" y="2639" class="field">title</text>
+<text x="60" y="2673" class="field">message</text>
+<text x="60" y="2707" class="field">read_at</text>
+<text x="60" y="2741" class="field">created_at</text>
+<rect class="card" x="721" y="2480" width="657" height="300" rx="10"/>
+<path class="head" d="M731,2480 h637 q10,0 10,10 v48 h-657 v-48 q0,-10 10,-10z"/>
+<text x="739" y="2517" class="ht">ALLOCATION_EVENTS</text>
+<text x="741" y="2571" class="key">PK event_id</text>
+<text x="741" y="2605" class="field">event_type</text>
+<text x="741" y="2639" class="field">entity_type</text>
+<text x="741" y="2673" class="field">entity_id (polymorphic)</text>
+<text x="741" y="2707" class="key">FK hospital_id (nullable)</text>
+<text x="741" y="2741" class="field">payload</text>
+<text x="741" y="2775" class="field">created_at</text>
+<rect x="40" y="3060" width="2020" height="245" rx="12" fill="#e5eff7" stroke="#bad0e2" stroke-width="2"/>
+<text x="60" y="3094" class="title" style="font-size:24px">RELATIONSHIPS (parent 1 → child many unless shown)</text>
+<text x="64" y="3128" class="rel">HOSPITALS  →  HOSPITAL_ACCOUNTS : 1 — 0..1  has login</text>
+<text x="64" y="3147" class="rel">ADMIN_ACCOUNTS  →  AUTH_SESSIONS : 1 — many  creates</text>
+<text x="64" y="3166" class="rel">HOSPITALS  →  AUTH_SESSIONS : 1 — many  creates</text>
+<text x="64" y="3185" class="rel">DONORS  →  ORGANS : 1 — many  provides</text>
+<text x="64" y="3204" class="rel">HOSPITALS  →  ORGANS : 1 — many  donor site</text>
+<text x="64" y="3223" class="rel">HOSPITALS  →  RECIPIENTS : 1 — many  registers</text>
+<text x="64" y="3242" class="rel">HOSPITALS  →  ORGAN_REQUESTS : 1 — many  submits</text>
+<text x="64" y="3261" class="rel">RECIPIENTS  →  ORGAN_REQUESTS : 1 — many  optional reference</text>
+<text x="64" y="3280" class="rel">HOSPITALS  →  DONATION_OFFERS : 1 — many  submits</text>
+<text x="1074" y="3128" class="rel">ORGANS  →  DONATION_OFFERS : 1 — many  optional link</text>
+<text x="1074" y="3147" class="rel">ORGANS  →  ALLOCATIONS : 1 — 0..1  allocated once</text>
+<text x="1074" y="3166" class="rel">RECIPIENTS  →  ALLOCATIONS : 1 — many  receives</text>
+<text x="1074" y="3185" class="rel">HOSPITALS  →  ALLOCATIONS : 1 — many  recipient hospital</text>
+<text x="1074" y="3204" class="rel">ORGANS  →  RESOURCE_LOCKS : 1 — 0..1  locked</text>
+<text x="1074" y="3223" class="rel">HOSPITALS  →  RESOURCE_LOCKS : 1 — many  lock owner</text>
+<text x="1074" y="3242" class="rel">HOSPITALS  →  HOSPITAL_DISTANCES : 1 — many  from / to</text>
+<text x="1074" y="3261" class="rel">HOSPITALS  →  NOTIFICATIONS : 1 — many  receives</text>
+<text x="1074" y="3280" class="rel">HOSPITALS  →  ALLOCATION_EVENTS : 1 — many  event context (optional)</text>
+</svg>

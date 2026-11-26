@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple OS and DBMS organ matching simulation">
+  <title>Organ Matching | OS + DBMS Lab</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview"><span class="brand-icon">OM</span><span>ORGAN MATCHING <small>OS + DBMS LAB</small></span></a>
+    <nav><a href="#overview" data-view="overview" class="active">Overview</a><a href="#records" data-view="records">Hospital requests &amp; offers</a><a href="#systems" data-view="systems">Allocation systems</a></nav>
+    <div class="header-actions"><span id="connection" class="connection"><i></i> Checking</span><button id="theme" class="button quiet" type="button">Dark</button></div>
+  </header>
+  <main>
+    <section id="login-view" class="panel" style="max-width:520px;margin:8vh auto">
+      <div class="eyebrow">SECURE ACCESS · ACADEMIC DEMO</div><h1>Sign in</h1><p>Choose your account type to open the matching workspace.</p>
+      <form id="login-form"><label>Account type<select name="role" id="login-role"><option value="admin">Administrator</option><option value="hospital">Hospital</option></select></label><label>Email / hospital login ID<input name="login" type="text" autocomplete="username" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button class="button primary" type="submit">Sign in</button></form>
+      <p class="hint">Use the training account credentials from the project setup notes. This academic simulation accepts fictional data only.</p>
+    </section>
+    <section id="hospital-view" class="view">
+      <div class="page-heading"><div><div class="eyebrow">HOSPITAL WORKSPACE</div><h1 id="hospital-title">Hospital dashboard</h1><p>Your account only shows this hospital’s requests, offers, and notifications. Names shown are fictional training records.</p></div><button class="button quiet logout">Sign out</button></div>
+      <div class="forms-grid">
+        <section class="panel"><h2>Request an organ</h2><form id="hospital-request-form"><label>Patient reference<input name="patient_ref" required maxlength="80"></label><label>Patient age<input name="patient_age" type="number" min="0" max="120" required></label><label>Organ<select name="organ_type"><option>Kidney</option><option>Heart</option><option>Liver</option><option>Lung</option><option>Pancreas</option></select></label><label>Blood group<select name="blood_type" required></select></label><label>Tissue profile<input name="tissue_type" required maxlength="250"></label><label>Urgency (1–10)<input name="urgency_score" type="number" min="1" max="10" value="5" required></label><label>Compatibility details<input name="compatibility_notes" maxlength="500"></label><label>Medical notes<textarea name="medical_notes" maxlength="1000"></textarea></label><button class="button primary">Submit request to admin</button></form></section>
+        <section class="panel"><h2>Offer a donation</h2><form id="hospital-offer-form"><label>Donor reference<input name="donor_ref" required maxlength="80"></label><label>Organ<select name="organ_type"><option>Kidney</option><option>Heart</option><option>Liver</option><option>Lung</option><option>Pancreas</option></select></label><label>Blood group<select name="blood_type" required></select></label><label>Tissue profile<input name="tissue_type" required maxlength="250"></label><label>Organ health / compatibility notes<textarea name="health_notes" maxlength="1000" required></textarea></label><label>Available at<input name="available_at" type="datetime-local" required></label><label>Viable until<input name="expires_at" type="datetime-local" required></label><button class="button primary">Submit offer to admin</button></form></section>
+      </div>
+      <section class="panel"><h2>My organ requests</h2><div id="my-requests" class="table-scroll"></div></section><section class="panel"><h2>My donation offers</h2><div id="my-offers" class="table-scroll"></div></section><section class="panel"><h2>Notifications</h2><div id="my-notifications" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">AUTHORIZED TRANSFERS · UTTARAKHAND</div><h2>Organ transport routes</h2></div></div><p class="hint">Routes appear after an admin allocation involves this hospital. Drive time is an estimate without live traffic or vehicle GPS.</p><div id="hospital-transfers" class="table-scroll"></div><div id="hospital-route-summary" class="route-summary" hidden></div><div id="hospital-route-map" class="route-map" aria-label="Map showing an approved organ transfer route"></div><div class="route-legend"><span><i class="legend-dot legend-donor"></i>Donor hospital</span><span><i class="legend-dot legend-recipient"></i>Recipient hospital</span></div></section>
+    </section>
+    <div id="notice" class="notice" hidden></div>
+    <section id="overview-view" class="view active">
+      <div class="page-heading"><div><div class="eyebrow">ORGAN TRANSPLANT MATCHING & ALLOCATION QUEUE</div><h1>Allocation dashboard</h1><p>Match recipients fairly, protect organ deadlines, and record every decision. All seeded profiles are fictional training data.</p></div><div class="actions"><span id="demo-progress" class="muted">Training dataset not loaded</span><button id="seed" class="button quiet" title="Permanently deletes all existing operational records before inserting the training dataset">Replace all data with training dataset</button><button id="refresh" class="button quiet">Refresh</button><button class="button quiet logout">Sign out</button></div></div>
+      <div id="metrics" class="metrics"></div>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">OS · PRIORITY + DEADLINE SCHEDULER</div><h2>Available organ queue</h2></div><span class="tag">Expiry worker: 10 sec</span></div><p class="hint">Choose an organ to rank eligible recipients by urgency, waiting time, and transport distance.</p><div class="table-scroll" id="organs-table"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">TRANSPORT PLANNING · UTTARAKHAND · OPENSTREETMAP</div><h2>Hospital-to-hospital route</h2></div><span class="tag">Estimated route · no live traffic</span></div><p class="hint">Choose donor and recipient hospitals in Uttarakhand to estimate driving distance and travel time. Pins use approximate city-centre coordinates for fictional training facilities.</p><div class="route-controls"><label>Donor hospital<select id="route-from"></select></label><label>Recipient hospital<select id="route-to"></select></label><button id="calculate-route" class="button primary" type="button">Calculate route</button></div><div id="admin-route-summary" class="route-summary" hidden></div><div id="admin-route-map" class="route-map" aria-label="Map showing the selected Uttarakhand hospital route"></div><div class="route-legend"><span><i class="legend-dot legend-donor"></i>Donor hospital</span><span><i class="legend-dot legend-recipient"></i>Recipient hospital</span><span><i class="legend-dot legend-hospital"></i>Registered hospital</span></div><p class="map-note">Map tiles © OpenStreetMap contributors · Route estimated from OpenStreetMap road data. Availability depends on internet and public routing service availability.</p></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">DBMS · TRANSACTION HISTORY</div><h2>Recent allocations</h2></div><span class="tag">Row lock · atomic commit</span></div><div class="table-scroll" id="allocations-table"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">OS + DBMS · RESOURCE ALLOCATION</div><h2>Wait-for graph</h2></div><button id="deadlock-demo" class="button primary">Run deadlock demo</button></div><div id="deadlock-result" class="graph-result">Run the demo to see a circular wait and its resolution.</div></section>
+    </section>
+    <section id="records-view" class="view">
+      <div class="page-heading"><div><div class="eyebrow">HOSPITAL QUEUE</div><h1>Requests &amp; donation offers</h1><p>Academic simulation only. Patient and donor details here are synthetic.</p></div></div>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">CENTRAL ADMIN QUEUE</div><h2>Organ requests</h2></div></div><div id="requests-table" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">CENTRAL ADMIN QUEUE</div><h2>Donation offers</h2></div></div><div id="offers-table" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">HOSPITAL UPDATES</div><h2>Decision notifications</h2></div></div><div id="notifications-table" class="table-scroll"></div></section>
+      <div class="page-heading"><div><div class="eyebrow">ACADEMIC DATA TOOLS</div><h2>Manage training records</h2><p>These controls populate or inspect fictional matching data.</p></div></div>
+      <div class="forms-grid">
+        <details class="panel"><summary>Add hospital</summary><form data-route="/api/hospitals"><label>Hospital name<input name="name" required maxlength="120"></label><button class="button primary">Save hospital</button></form></details>
+        <details class="panel"><summary>Add donor</summary><form data-route="/api/donors"><label>Donor name<input name="name" required maxlength="120"></label><label>Blood type<select name="blood_type" required></select></label><label>Medically eligible<select name="medically_eligible"><option value="true">Yes</option><option value="false">No</option></select></label><button class="button primary">Save donor</button></form></details>
+        <details class="panel"><summary>Register organ</summary><form data-route="/api/organs"><label>Donor<select name="donor_id" id="donor-select" required></select></label><label>Organ type<select name="organ_type"><option>Kidney</option><option>Heart</option><option>Liver</option><option>Lung</option><option>Pancreas</option></select></label><label>Donor hospital<select name="donor_hospital_id" id="organ-hospital"></select></label><label>Viability (hours)<input name="viable_hours" type="number" min="0.1" max="8760" step="0.1" value="24" required></label><button class="button primary">Save organ</button></form></details>
+        <details class="panel"><summary>Add recipient</summary><form data-route="/api/recipients"><label>Recipient name<input name="name" required maxlength="120"></label><label>Organ type<select name="organ_type"><option>Kidney</option><option>Heart</option><option>Liver</option><option>Lung</option><option>Pancreas</option></select></label><label>Blood type<select name="blood_type" required></select></label><label>Urgency (1–10)<input name="urgency_score" type="number" min="1" max="10" value="5" required></label><label>Waiting days<input name="waiting_days" type="number" min="0" value="0" required></label><label>Hospital<select name="hospital_id" id="recipient-hospital" required></select></label><button class="button primary">Save recipient</button></form></details>
+        <details class="panel"><summary>Set transport distance</summary><form data-route="/api/distances" data-method="PUT"><label>From hospital<select name="from_hospital_id" class="hospital-options"></select></label><label>To hospital<select name="to_hospital_id" class="hospital-options"></select></label><label>Distance (km)<input name="distance_km" type="number" min="0" step="0.1" required></label><button class="button primary">Save distance</button></form></details>
+        <details class="panel"><summary>Record hospital rejection</summary><form data-route="/api/reject"><label>Organ<select name="organ_id" class="organ-options"></select></label><label>Hospital<select name="hospital_id" class="hospital-options"></select></label><label>Reason<input name="reason" required maxlength="250"></label><button class="button primary">Record reason</button></form></details>
+      </div>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">NETWORK</div><h2>Hospitals</h2></div></div><div id="hospitals-table" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">DONOR HEALTH + COMPATIBILITY</div><h2>Donors</h2></div></div><div id="donors-table" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">VIABILITY DEADLINES</div><h2>Organs</h2></div></div><div id="all-organs-table" class="table-scroll"></div></section>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">PRIORITY WAITLIST</div><h2>Recipients</h2></div></div><div id="recipients-table" class="table-scroll"></div></section>
+    </section>
+    <section id="systems-view" class="view">
+      <div class="page-heading"><div><div class="eyebrow">OPERATING SYSTEMS + DATABASE MANAGEMENT</div><h1>Systems lab</h1><p>Run CPU scheduling, resource safety, and database recovery demonstrations.</p></div></div>
+      <section class="panel">
+        <div class="panel-heading"><div><div class="eyebrow">OS · CPU PROCESS SCHEDULING</div><h2>Scheduling simulator</h2></div><span class="tag">User-space simulation</span></div>
+        <p class="hint">Compare FCFS, non-preemptive SJF, non-preemptive Priority, and preemptive Round Robin. Lower priority number means higher priority.</p>
+        <form id="process-scheduler-form">
+          <div class="forms-grid">
+            <label>Algorithm<select name="algorithm"><option value="FCFS">FCFS</option><option value="SJF">Shortest Job First (non-preemptive)</option><option value="PRIORITY">Priority (non-preemptive)</option><option value="RR">Round Robin</option></select></label>
+            <label>Round Robin quantum<input name="quantum" type="number" min="1" max="1000" value="2" required></label>
+          </div>
+          <div class="table-scroll"><table><thead><tr><th>PROCESS</th><th>ARRIVAL TIME</th><th>BURST TIME</th><th>PRIORITY</th></tr></thead><tbody>
+            <tr><td>P1</td><td><input name="p1_arrival" type="number" min="0" value="0" required></td><td><input name="p1_burst" type="number" min="1" value="7" required></td><td><input name="p1_priority" type="number" min="1" max="10" value="2" required></td></tr>
+            <tr><td>P2</td><td><input name="p2_arrival" type="number" min="0" value="2" required></td><td><input name="p2_burst" type="number" min="1" value="4" required></td><td><input name="p2_priority" type="number" min="1" max="10" value="1" required></td></tr>
+            <tr><td>P3</td><td><input name="p3_arrival" type="number" min="0" value="4" required></td><td><input name="p3_burst" type="number" min="1" value="1" required></td><td><input name="p3_priority" type="number" min="1" max="10" value="3" required></td></tr>
+            <tr><td>P4</td><td><input name="p4_arrival" type="number" min="0" value="5" required></td><td><input name="p4_burst" type="number" min="1" value="4" required></td><td><input name="p4_priority" type="number" min="1" max="10" value="2" required></td></tr>
+          </tbody></table></div>
+          <button class="button primary" type="submit">Run scheduler</button>
+        </form>
+        <div id="process-schedule-output" hidden>
+          <h3>Gantt chart</h3><div id="schedule-gantt" class="schedule-gantt"></div>
+          <div id="schedule-averages" class="analytics-list"></div>
+          <div id="schedule-results" class="table-scroll"></div>
+        </div>
+      </section>
+      <div class="concept-grid">
+        <article class="panel"><div class="eyebrow">OS · MUTUAL EXCLUSION</div><h2>Resource locks</h2><p>A database row lock prevents two hospitals from claiming one organ at the same time.</p><code>SELECT … FOR UPDATE</code></article>
+        <article class="panel"><div class="eyebrow">DBMS · ACID</div><h2>Atomic allocation</h2><p>Organ status, allocation, lock cleanup, and event log update in one transaction.</p><code>BEGIN → COMMIT / ROLLBACK</code></article>
+        <article class="panel"><div class="eyebrow">OS · DEADLOCK</div><h2>Wait-for graph example</h2><p>Illustrates a circular wait and demonstrates selecting one process as the victim.</p><button id="deadlock-lab" class="button quiet">Run deadlock simulation</button></article>
+        <article class="panel"><div class="eyebrow">DBMS · LOG RECOVERY</div><h2>Crash recovery</h2><p>Rebuild allocation rows and organ state from committed allocation events.</p><div class="actions"><button id="crash" class="button quiet">Simulate crash</button><button id="recover" class="button primary">Recover database</button></div></article>
+        <article class="panel"><div class="eyebrow">OS · DEADLINE SCHEDULER</div><h2>Expire organs</h2><p>Expired organs move to WASTED and stay in the database with an audit event.</p><button id="expire" class="button quiet">Run deadline check</button></article>
+        <article class="panel"><div class="eyebrow">DBMS · INDEX + ANALYTICS</div><h2>Allocation metrics</h2><p>The compatibility index narrows the waitlist search; metrics summarize allocation and wastage.</p><div id="analytics" class="analytics-list"></div></article>
+      </div>
+      <section class="panel"><div class="panel-heading"><div><div class="eyebrow">APPEND-ONLY</div><h2>Allocation event log</h2></div><span class="tag">Recovery source</span></div><div id="events-table" class="table-scroll"></div></section>
+    </section>
+  </main>
+  <dialog id="expiry-dialog" class="expiry-dialog" aria-labelledby="expiry-alert-title"><div class="expiry-alert-icon" aria-hidden="true">!</div><div class="eyebrow">ORGAN DEADLINE ALERT</div><h2 id="expiry-alert-title">Urgent organ</h2><p id="expiry-alert-message"></p><div class="actions"><button id="expiry-view-matches" class="button quiet" type="button">View eligible recipients</button><button id="expiry-priority-allocate" class="button primary" type="button">Priority allocate now</button><button id="expiry-later" class="button quiet" type="button">Later</button></div></dialog>
+  <dialog id="match-dialog"><div class="panel-heading"><div><div class="eyebrow">OS PRIORITY SCHEDULER · DBMS ROW LOCK</div><h2 id="match-title">Eligible recipients</h2></div><div class="actions"><button id="auto-allocate" class="button primary" type="button">Schedule &amp; allocate</button><button id="close-match" class="button quiet" type="button">Close</button></div></div><p class="hint">Hospital request recipients enter this list only after admin approval; admin-owned training recipients are also shown. ABO-compatible recipients are ranked by urgency, waiting time, straight-line distance, and exact synthetic tissue-profile match (+20). Allocation locks the organ and recipient rows in one transaction. This score is for OS/DBMS coursework, not clinical decisions.</p><div id="match-table" class="table-scroll"></div></dialog>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="3105" viewBox="0 0 2200 3105">
+<defs><style>.bg{fill:#fbfcfe}.title{font:700 34px Arial,sans-serif;fill:#111}.subtitle{font:18px Arial,sans-serif;fill:#333}.entity{fill:white;stroke:#111;stroke-width:3}.ellipse{fill:white;stroke:#111;stroke-width:2.5}.diamond{fill:white;stroke:#111;stroke-width:3}.line{stroke:#111;stroke-width:2.5;fill:none}.enttxt{font:700 20px Arial,monospace;fill:#111}.attrtxt{font:16px Arial,monospace;fill:#111}.reltxt{font:17px Arial,monospace;fill:#111}.card{font:700 16px Arial,sans-serif;fill:#111}.row{stroke:#d8dde3;stroke-width:1}</style></defs>
+<rect class="bg" width="2200" height="3105"/>
+<text x="42" y="52" class="title">Organ Allocation System — Chen ER Diagram</text>
+<text x="42" y="84" class="subtitle">Rectangles = entities · Ovals = key attributes · Diamonds = relationships · PK = primary key · FK = foreign key · UK = unique key</text>
+<text x="42" y="111" class="subtitle">Each relationship diamond is directly connected to both entity rectangles. Attribute ovals identify the participating keys.</text>
+<line class="row" x1="36" y1="310" x2="2164" y2="310"/>
+<rect class="entity" x="80" y="178.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="214">HOSPITALS</text>
+<rect class="entity" x="1640" y="178.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="214">HOSPITAL_ACCOUNTS</text>
+<line class="line" x1="560" y1="207" x2="950.0" y2="207"/>
+<line class="line" x1="1250.0" y1="207" x2="1640" y2="207"/>
+<path class="diamond" d="M1100,168.0 L1250.0,207 L1100,246.0 L950.0,207 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="213">HAS LOGIN</text>
+<text class="card" text-anchor="middle" x="605" y="196">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="196">0..1</text>
+<line class="line" x1="320.0" y1="236.0" x2="320.0" y2="254"/>
+<ellipse class="ellipse" cx="320.0" cy="274" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="280" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="236.0" x2="1880.0" y2="254"/>
+<ellipse class="ellipse" cx="1880.0" cy="274" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="280" text-decoration="underline">hospital_id (FK, UK)</text>
+<line class="row" x1="36" y1="470" x2="2164" y2="470"/>
+<rect class="entity" x="80" y="338.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="374">ADMIN_ACCOUNTS</text>
+<rect class="entity" x="1640" y="338.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="374">AUTH_SESSIONS</text>
+<line class="line" x1="560" y1="367" x2="950.0" y2="367"/>
+<line class="line" x1="1250.0" y1="367" x2="1640" y2="367"/>
+<path class="diamond" d="M1100,328.0 L1250.0,367 L1100,406.0 L950.0,367 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="373">CREATES</text>
+<text class="card" text-anchor="middle" x="605" y="356">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="356">N</text>
+<line class="line" x1="320.0" y1="396.0" x2="320.0" y2="414"/>
+<ellipse class="ellipse" cx="320.0" cy="434" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="440" text-decoration="underline">admin_id (PK)</text>
+<line class="line" x1="1880.0" y1="396.0" x2="1880.0" y2="414"/>
+<ellipse class="ellipse" cx="1880.0" cy="434" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="440" text-decoration="underline">admin_id (FK)</text>
+<line class="row" x1="36" y1="630" x2="2164" y2="630"/>
+<rect class="entity" x="80" y="498.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="534">HOSPITALS</text>
+<rect class="entity" x="1640" y="498.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="534">AUTH_SESSIONS</text>
+<line class="line" x1="560" y1="527" x2="950.0" y2="527"/>
+<line class="line" x1="1250.0" y1="527" x2="1640" y2="527"/>
+<path class="diamond" d="M1100,488.0 L1250.0,527 L1100,566.0 L950.0,527 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="533">CREATES</text>
+<text class="card" text-anchor="middle" x="605" y="516">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="516">N</text>
+<line class="line" x1="320.0" y1="556.0" x2="320.0" y2="574"/>
+<ellipse class="ellipse" cx="320.0" cy="594" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="600" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="556.0" x2="1880.0" y2="574"/>
+<ellipse class="ellipse" cx="1880.0" cy="594" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="600" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="790" x2="2164" y2="790"/>
+<rect class="entity" x="80" y="658.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="694">DONORS</text>
+<rect class="entity" x="1640" y="658.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="694">ORGANS</text>
+<line class="line" x1="560" y1="687" x2="950.0" y2="687"/>
+<line class="line" x1="1250.0" y1="687" x2="1640" y2="687"/>
+<path class="diamond" d="M1100,648.0 L1250.0,687 L1100,726.0 L950.0,687 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="693">PROVIDES</text>
+<text class="card" text-anchor="middle" x="605" y="676">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="676">N</text>
+<line class="line" x1="320.0" y1="716.0" x2="320.0" y2="734"/>
+<ellipse class="ellipse" cx="320.0" cy="754" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="760" text-decoration="underline">donor_id (PK)</text>
+<line class="line" x1="1880.0" y1="716.0" x2="1880.0" y2="734"/>
+<ellipse class="ellipse" cx="1880.0" cy="754" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="760" text-decoration="underline">donor_id (FK)</text>
+<line class="row" x1="36" y1="950" x2="2164" y2="950"/>
+<rect class="entity" x="80" y="818.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="854">HOSPITALS</text>
+<rect class="entity" x="1640" y="818.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="854">ORGANS</text>
+<line class="line" x1="560" y1="847" x2="950.0" y2="847"/>
+<line class="line" x1="1250.0" y1="847" x2="1640" y2="847"/>
+<path class="diamond" d="M1100,808.0 L1250.0,847 L1100,886.0 L950.0,847 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="853">DONOR SITE</text>
+<text class="card" text-anchor="middle" x="605" y="836">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="836">N</text>
+<line class="line" x1="320.0" y1="876.0" x2="320.0" y2="894"/>
+<ellipse class="ellipse" cx="320.0" cy="914" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="920" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="876.0" x2="1880.0" y2="894"/>
+<ellipse class="ellipse" cx="1880.0" cy="914" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="920" text-decoration="underline">donor_hospital_id (FK)</text>
+<line class="row" x1="36" y1="1110" x2="2164" y2="1110"/>
+<rect class="entity" x="80" y="978.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1014">HOSPITALS</text>
+<rect class="entity" x="1640" y="978.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1014">RECIPIENTS</text>
+<line class="line" x1="560" y1="1007" x2="950.0" y2="1007"/>
+<line class="line" x1="1250.0" y1="1007" x2="1640" y2="1007"/>
+<path class="diamond" d="M1100,968.0 L1250.0,1007 L1100,1046.0 L950.0,1007 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1013">REGISTERS</text>
+<text class="card" text-anchor="middle" x="605" y="996">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="996">N</text>
+<line class="line" x1="320.0" y1="1036.0" x2="320.0" y2="1054"/>
+<ellipse class="ellipse" cx="320.0" cy="1074" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1080" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="1036.0" x2="1880.0" y2="1054"/>
+<ellipse class="ellipse" cx="1880.0" cy="1074" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1080" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="1270" x2="2164" y2="1270"/>
+<rect class="entity" x="80" y="1138.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1174">HOSPITALS</text>
+<rect class="entity" x="1640" y="1138.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1174">ORGAN_REQUESTS</text>
+<line class="line" x1="560" y1="1167" x2="950.0" y2="1167"/>
+<line class="line" x1="1250.0" y1="1167" x2="1640" y2="1167"/>
+<path class="diamond" d="M1100,1128.0 L1250.0,1167 L1100,1206.0 L950.0,1167 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1173">SUBMITS</text>
+<text class="card" text-anchor="middle" x="605" y="1156">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1156">N</text>
+<line class="line" x1="320.0" y1="1196.0" x2="320.0" y2="1214"/>
+<ellipse class="ellipse" cx="320.0" cy="1234" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1240" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="1196.0" x2="1880.0" y2="1214"/>
+<ellipse class="ellipse" cx="1880.0" cy="1234" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1240" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="1430" x2="2164" y2="1430"/>
+<rect class="entity" x="80" y="1298.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1334">RECIPIENTS</text>
+<rect class="entity" x="1640" y="1298.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1334">ORGAN_REQUESTS</text>
+<line class="line" x1="560" y1="1327" x2="950.0" y2="1327"/>
+<line class="line" x1="1250.0" y1="1327" x2="1640" y2="1327"/>
+<path class="diamond" d="M1100,1288.0 L1250.0,1327 L1100,1366.0 L950.0,1327 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1333">REFERENCES</text>
+<text class="card" text-anchor="middle" x="605" y="1316">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1316">N</text>
+<line class="line" x1="320.0" y1="1356.0" x2="320.0" y2="1374"/>
+<ellipse class="ellipse" cx="320.0" cy="1394" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1400" text-decoration="underline">recipient_id (PK)</text>
+<line class="line" x1="1880.0" y1="1356.0" x2="1880.0" y2="1374"/>
+<ellipse class="ellipse" cx="1880.0" cy="1394" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1400" text-decoration="underline">recipient_id (FK, optional)</text>
+<line class="row" x1="36" y1="1590" x2="2164" y2="1590"/>
+<rect class="entity" x="80" y="1458.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1494">HOSPITALS</text>
+<rect class="entity" x="1640" y="1458.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1494">DONATION_OFFERS</text>
+<line class="line" x1="560" y1="1487" x2="950.0" y2="1487"/>
+<line class="line" x1="1250.0" y1="1487" x2="1640" y2="1487"/>
+<path class="diamond" d="M1100,1448.0 L1250.0,1487 L1100,1526.0 L950.0,1487 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1493">SUBMITS</text>
+<text class="card" text-anchor="middle" x="605" y="1476">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1476">N</text>
+<line class="line" x1="320.0" y1="1516.0" x2="320.0" y2="1534"/>
+<ellipse class="ellipse" cx="320.0" cy="1554" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1560" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="1516.0" x2="1880.0" y2="1534"/>
+<ellipse class="ellipse" cx="1880.0" cy="1554" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1560" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="1750" x2="2164" y2="1750"/>
+<rect class="entity" x="80" y="1618.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1654">ORGANS</text>
+<rect class="entity" x="1640" y="1618.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1654">DONATION_OFFERS</text>
+<line class="line" x1="560" y1="1647" x2="950.0" y2="1647"/>
+<line class="line" x1="1250.0" y1="1647" x2="1640" y2="1647"/>
+<path class="diamond" d="M1100,1608.0 L1250.0,1647 L1100,1686.0 L950.0,1647 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1653">LINKED AFTER APPROVAL</text>
+<text class="card" text-anchor="middle" x="605" y="1636">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1636">N</text>
+<line class="line" x1="320.0" y1="1676.0" x2="320.0" y2="1694"/>
+<ellipse class="ellipse" cx="320.0" cy="1714" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1720" text-decoration="underline">organ_id (PK)</text>
+<line class="line" x1="1880.0" y1="1676.0" x2="1880.0" y2="1694"/>
+<ellipse class="ellipse" cx="1880.0" cy="1714" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1720" text-decoration="underline">organ_id (FK, optional)</text>
+<line class="row" x1="36" y1="1910" x2="2164" y2="1910"/>
+<rect class="entity" x="80" y="1778.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1814">ORGANS</text>
+<rect class="entity" x="1640" y="1778.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1814">ALLOCATIONS</text>
+<line class="line" x1="560" y1="1807" x2="950.0" y2="1807"/>
+<line class="line" x1="1250.0" y1="1807" x2="1640" y2="1807"/>
+<path class="diamond" d="M1100,1768.0 L1250.0,1807 L1100,1846.0 L950.0,1807 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1813">ALLOCATED ONCE</text>
+<text class="card" text-anchor="middle" x="605" y="1796">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1796">0..1</text>
+<line class="line" x1="320.0" y1="1836.0" x2="320.0" y2="1854"/>
+<ellipse class="ellipse" cx="320.0" cy="1874" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="1880" text-decoration="underline">organ_id (PK)</text>
+<line class="line" x1="1880.0" y1="1836.0" x2="1880.0" y2="1854"/>
+<ellipse class="ellipse" cx="1880.0" cy="1874" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="1880" text-decoration="underline">organ_id (FK, unique)</text>
+<line class="row" x1="36" y1="2070" x2="2164" y2="2070"/>
+<rect class="entity" x="80" y="1938.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="1974">RECIPIENTS</text>
+<rect class="entity" x="1640" y="1938.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="1974">ALLOCATIONS</text>
+<line class="line" x1="560" y1="1967" x2="950.0" y2="1967"/>
+<line class="line" x1="1250.0" y1="1967" x2="1640" y2="1967"/>
+<path class="diamond" d="M1100,1928.0 L1250.0,1967 L1100,2006.0 L950.0,1967 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="1973">RECEIVES</text>
+<text class="card" text-anchor="middle" x="605" y="1956">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="1956">N</text>
+<line class="line" x1="320.0" y1="1996.0" x2="320.0" y2="2014"/>
+<ellipse class="ellipse" cx="320.0" cy="2034" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2040" text-decoration="underline">recipient_id (PK)</text>
+<line class="line" x1="1880.0" y1="1996.0" x2="1880.0" y2="2014"/>
+<ellipse class="ellipse" cx="1880.0" cy="2034" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2040" text-decoration="underline">recipient_id (FK)</text>
+<line class="row" x1="36" y1="2230" x2="2164" y2="2230"/>
+<rect class="entity" x="80" y="2098.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2134">HOSPITALS</text>
+<rect class="entity" x="1640" y="2098.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2134">ALLOCATIONS</text>
+<line class="line" x1="560" y1="2127" x2="950.0" y2="2127"/>
+<line class="line" x1="1250.0" y1="2127" x2="1640" y2="2127"/>
+<path class="diamond" d="M1100,2088.0 L1250.0,2127 L1100,2166.0 L950.0,2127 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2133">RECIPIENT HOSPITAL</text>
+<text class="card" text-anchor="middle" x="605" y="2116">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2116">N</text>
+<line class="line" x1="320.0" y1="2156.0" x2="320.0" y2="2174"/>
+<ellipse class="ellipse" cx="320.0" cy="2194" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2200" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="2156.0" x2="1880.0" y2="2174"/>
+<ellipse class="ellipse" cx="1880.0" cy="2194" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2200" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="2390" x2="2164" y2="2390"/>
+<rect class="entity" x="80" y="2258.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2294">ORGANS</text>
+<rect class="entity" x="1640" y="2258.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2294">RESOURCE_LOCKS</text>
+<line class="line" x1="560" y1="2287" x2="950.0" y2="2287"/>
+<line class="line" x1="1250.0" y1="2287" x2="1640" y2="2287"/>
+<path class="diamond" d="M1100,2248.0 L1250.0,2287 L1100,2326.0 L950.0,2287 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2293">LOCKED BY</text>
+<text class="card" text-anchor="middle" x="605" y="2276">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2276">0..1</text>
+<line class="line" x1="320.0" y1="2316.0" x2="320.0" y2="2334"/>
+<ellipse class="ellipse" cx="320.0" cy="2354" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2360" text-decoration="underline">organ_id (PK)</text>
+<line class="line" x1="1880.0" y1="2316.0" x2="1880.0" y2="2334"/>
+<ellipse class="ellipse" cx="1880.0" cy="2354" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2360" text-decoration="underline">organ_id (PK, FK)</text>
+<line class="row" x1="36" y1="2550" x2="2164" y2="2550"/>
+<rect class="entity" x="80" y="2418.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2454">HOSPITALS</text>
+<rect class="entity" x="1640" y="2418.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2454">RESOURCE_LOCKS</text>
+<line class="line" x1="560" y1="2447" x2="950.0" y2="2447"/>
+<line class="line" x1="1250.0" y1="2447" x2="1640" y2="2447"/>
+<path class="diamond" d="M1100,2408.0 L1250.0,2447 L1100,2486.0 L950.0,2447 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2453">LOCK OWNER</text>
+<text class="card" text-anchor="middle" x="605" y="2436">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2436">N</text>
+<line class="line" x1="320.0" y1="2476.0" x2="320.0" y2="2494"/>
+<ellipse class="ellipse" cx="320.0" cy="2514" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2520" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="2476.0" x2="1880.0" y2="2494"/>
+<ellipse class="ellipse" cx="1880.0" cy="2514" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2520" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="2710" x2="2164" y2="2710"/>
+<rect class="entity" x="80" y="2578.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2614">HOSPITALS</text>
+<rect class="entity" x="1640" y="2578.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2614">HOSPITAL_DISTANCES</text>
+<line class="line" x1="560" y1="2607" x2="950.0" y2="2607"/>
+<line class="line" x1="1250.0" y1="2607" x2="1640" y2="2607"/>
+<path class="diamond" d="M1100,2568.0 L1250.0,2607 L1100,2646.0 L950.0,2607 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2613">DISTANCE FROM / TO</text>
+<text class="card" text-anchor="middle" x="605" y="2596">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2596">N</text>
+<line class="line" x1="320.0" y1="2636.0" x2="320.0" y2="2654"/>
+<ellipse class="ellipse" cx="320.0" cy="2674" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2680" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="2636.0" x2="1880.0" y2="2654"/>
+<ellipse class="ellipse" cx="1880.0" cy="2674" rx="231.0" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2680" text-decoration="underline">from_hospital_id / to_hospital_id (PK, FK)</text>
+<line class="row" x1="36" y1="2870" x2="2164" y2="2870"/>
+<rect class="entity" x="80" y="2738.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2774">HOSPITALS</text>
+<rect class="entity" x="1640" y="2738.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2774">NOTIFICATIONS</text>
+<line class="line" x1="560" y1="2767" x2="950.0" y2="2767"/>
+<line class="line" x1="1250.0" y1="2767" x2="1640" y2="2767"/>
+<path class="diamond" d="M1100,2728.0 L1250.0,2767 L1100,2806.0 L950.0,2767 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2773">RECEIVES</text>
+<text class="card" text-anchor="middle" x="605" y="2756">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2756">N</text>
+<line class="line" x1="320.0" y1="2796.0" x2="320.0" y2="2814"/>
+<ellipse class="ellipse" cx="320.0" cy="2834" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="2840" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="2796.0" x2="1880.0" y2="2814"/>
+<ellipse class="ellipse" cx="1880.0" cy="2834" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="2840" text-decoration="underline">hospital_id (FK)</text>
+<line class="row" x1="36" y1="3030" x2="2164" y2="3030"/>
+<rect class="entity" x="80" y="2898.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="320.0" y="2934">HOSPITALS</text>
+<rect class="entity" x="1640" y="2898.0" width="480" height="58"/>
+<text class="enttxt" text-anchor="middle" x="1880.0" y="2934">ALLOCATION_EVENTS</text>
+<line class="line" x1="560" y1="2927" x2="950.0" y2="2927"/>
+<line class="line" x1="1250.0" y1="2927" x2="1640" y2="2927"/>
+<path class="diamond" d="M1100,2888.0 L1250.0,2927 L1100,2966.0 L950.0,2927 Z"/>
+<text class="reltxt" text-anchor="middle" x="1100" y="2933">EVENT CONTEXT</text>
+<text class="card" text-anchor="middle" x="605" y="2916">1</text>
+<text class="card" text-anchor="middle" x="1295.0" y="2916">N</text>
+<line class="line" x1="320.0" y1="2956.0" x2="320.0" y2="2974"/>
+<ellipse class="ellipse" cx="320.0" cy="2994" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="320.0" y="3000" text-decoration="underline">hospital_id (PK)</text>
+<line class="line" x1="1880.0" y1="2956.0" x2="1880.0" y2="2974"/>
+<ellipse class="ellipse" cx="1880.0" cy="2994" rx="185" ry="25"/>
+<text class="attrtxt" text-anchor="middle" x="1880.0" y="3000" text-decoration="underline">hospital_id (FK, optional)</text>
+</svg>

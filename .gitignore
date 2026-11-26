@@ -1,0 +1,5 @@
+.env
+.DS_Store
+*.exe
+src/main
+.vscode/

@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="2179" viewBox="0 0 1900 2179">
+<defs><style>.bg{fill:#f5f8fc}.title{font:700 34px Arial,sans-serif;fill:#173c5a}.sub{font:18px Arial,sans-serif;fill:#4c657a}.box{fill:#dceeff;stroke:#155b8b;stroke-width:3}.diamond{fill:#fff1cf;stroke:#9a6810;stroke-width:2.5}.name{font:700 20px Arial,sans-serif;fill:#103b5d}.key{font:16px Arial,sans-serif;fill:#34536a}.rt{font:700 16px Arial,sans-serif;fill:#59400d}.card{font:700 17px Arial,sans-serif;fill:#233d52}.line{stroke:#445e72;stroke-width:2.5}.row{fill:#fff;stroke:#d8e3ec;stroke-width:1}</style></defs>
+<rect class="bg" width="1900" height="2179"/>
+<text x="42" y="52" class="title">Organ Allocation System — Linked ER Relationships</text>
+<text x="42" y="85" class="sub">Entity rectangles are directly connected through relationship diamonds. Cardinalities are shown at both ends.</text>
+<text x="42" y="113" class="sub">PK = primary key · FK = foreign key · UK = unique key · 0..1 = optional or at most one · N = many</text>
+<rect class="row" x="28" y="145" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="163" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="188">HOSPITALS</text>
+<text class="key" x="68" y="210">hospital_id PK</text>
+<rect class="box" x="1308" y="163" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="188">HOSPITAL_ACCOUNTS</text>
+<text class="key" x="1324" y="210">hospital_id FK, UK</text>
+<line class="line" x1="562" y1="193.0" x2="825.0" y2="193.0"/>
+<line class="line" x1="1085.0" y1="193.0" x2="1308" y2="193.0"/>
+<path class="diamond" d="M955,165.0 L1085.0,193.0 L955,221.0 L825.0,193.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="198.0">HAS LOGIN</text>
+<text class="card" text-anchor="middle" x="616" y="182.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="182.0">0..1</text>
+<rect class="row" x="28" y="253" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="271" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="296">ADMIN_ACCOUNTS</text>
+<text class="key" x="68" y="318">admin_id PK</text>
+<rect class="box" x="1308" y="271" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="296">AUTH_SESSIONS</text>
+<text class="key" x="1324" y="318">admin_id FK</text>
+<line class="line" x1="562" y1="301.0" x2="825.0" y2="301.0"/>
+<line class="line" x1="1085.0" y1="301.0" x2="1308" y2="301.0"/>
+<path class="diamond" d="M955,273.0 L1085.0,301.0 L955,329.0 L825.0,301.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="306.0">CREATES SESSION</text>
+<text class="card" text-anchor="middle" x="616" y="290.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="290.0">N</text>
+<rect class="row" x="28" y="361" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="379" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="404">HOSPITALS</text>
+<text class="key" x="68" y="426">hospital_id PK</text>
+<rect class="box" x="1308" y="379" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="404">AUTH_SESSIONS</text>
+<text class="key" x="1324" y="426">hospital_id FK</text>
+<line class="line" x1="562" y1="409.0" x2="825.0" y2="409.0"/>
+<line class="line" x1="1085.0" y1="409.0" x2="1308" y2="409.0"/>
+<path class="diamond" d="M955,381.0 L1085.0,409.0 L955,437.0 L825.0,409.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="414.0">CREATES SESSION</text>
+<text class="card" text-anchor="middle" x="616" y="398.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="398.0">N</text>
+<rect class="row" x="28" y="469" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="487" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="512">DONORS</text>
+<text class="key" x="68" y="534">donor_id PK</text>
+<rect class="box" x="1308" y="487" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="512">ORGANS</text>
+<text class="key" x="1324" y="534">donor_id FK</text>
+<line class="line" x1="562" y1="517.0" x2="825.0" y2="517.0"/>
+<line class="line" x1="1085.0" y1="517.0" x2="1308" y2="517.0"/>
+<path class="diamond" d="M955,489.0 L1085.0,517.0 L955,545.0 L825.0,517.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="522.0">PROVIDES</text>
+<text class="card" text-anchor="middle" x="616" y="506.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="506.0">N</text>
+<rect class="row" x="28" y="577" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="595" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="620">HOSPITALS</text>
+<text class="key" x="68" y="642">hospital_id PK</text>
+<rect class="box" x="1308" y="595" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="620">ORGANS</text>
+<text class="key" x="1324" y="642">donor_hospital_id FK</text>
+<line class="line" x1="562" y1="625.0" x2="825.0" y2="625.0"/>
+<line class="line" x1="1085.0" y1="625.0" x2="1308" y2="625.0"/>
+<path class="diamond" d="M955,597.0 L1085.0,625.0 L955,653.0 L825.0,625.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="630.0">DONOR SITE</text>
+<text class="card" text-anchor="middle" x="616" y="614.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="614.0">N</text>
+<rect class="row" x="28" y="685" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="703" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="728">HOSPITALS</text>
+<text class="key" x="68" y="750">hospital_id PK</text>
+<rect class="box" x="1308" y="703" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="728">RECIPIENTS</text>
+<text class="key" x="1324" y="750">hospital_id FK</text>
+<line class="line" x1="562" y1="733.0" x2="825.0" y2="733.0"/>
+<line class="line" x1="1085.0" y1="733.0" x2="1308" y2="733.0"/>
+<path class="diamond" d="M955,705.0 L1085.0,733.0 L955,761.0 L825.0,733.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="738.0">REGISTERS</text>
+<text class="card" text-anchor="middle" x="616" y="722.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="722.0">N</text>
+<rect class="row" x="28" y="793" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="811" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="836">HOSPITALS</text>
+<text class="key" x="68" y="858">hospital_id PK</text>
+<rect class="box" x="1308" y="811" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="836">ORGAN_REQUESTS</text>
+<text class="key" x="1324" y="858">hospital_id FK</text>
+<line class="line" x1="562" y1="841.0" x2="825.0" y2="841.0"/>
+<line class="line" x1="1085.0" y1="841.0" x2="1308" y2="841.0"/>
+<path class="diamond" d="M955,813.0 L1085.0,841.0 L955,869.0 L825.0,841.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="846.0">SUBMITS REQUEST</text>
+<text class="card" text-anchor="middle" x="616" y="830.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="830.0">N</text>
+<rect class="row" x="28" y="901" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="919" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="944">RECIPIENTS</text>
+<text class="key" x="68" y="966">recipient_id PK</text>
+<rect class="box" x="1308" y="919" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="944">ORGAN_REQUESTS</text>
+<text class="key" x="1324" y="966">recipient_id FK, nullable</text>
+<line class="line" x1="562" y1="949.0" x2="825.0" y2="949.0"/>
+<line class="line" x1="1085.0" y1="949.0" x2="1308" y2="949.0"/>
+<path class="diamond" d="M955,921.0 L1085.0,949.0 L955,977.0 L825.0,949.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="954.0">OPTIONAL PATIENT REF</text>
+<text class="card" text-anchor="middle" x="616" y="938.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="938.0">N</text>
+<rect class="row" x="28" y="1009" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1027" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1052">HOSPITALS</text>
+<text class="key" x="68" y="1074">hospital_id PK</text>
+<rect class="box" x="1308" y="1027" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1052">DONATION_OFFERS</text>
+<text class="key" x="1324" y="1074">hospital_id FK</text>
+<line class="line" x1="562" y1="1057.0" x2="825.0" y2="1057.0"/>
+<line class="line" x1="1085.0" y1="1057.0" x2="1308" y2="1057.0"/>
+<path class="diamond" d="M955,1029.0 L1085.0,1057.0 L955,1085.0 L825.0,1057.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1062.0">SUBMITS OFFER</text>
+<text class="card" text-anchor="middle" x="616" y="1046.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1046.0">N</text>
+<rect class="row" x="28" y="1117" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1135" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1160">ORGANS</text>
+<text class="key" x="68" y="1182">organ_id PK</text>
+<rect class="box" x="1308" y="1135" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1160">DONATION_OFFERS</text>
+<text class="key" x="1324" y="1182">organ_id FK, nullable</text>
+<line class="line" x1="562" y1="1165.0" x2="825.0" y2="1165.0"/>
+<line class="line" x1="1085.0" y1="1165.0" x2="1308" y2="1165.0"/>
+<path class="diamond" d="M955,1137.0 L1085.0,1165.0 L955,1193.0 L825.0,1165.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1170.0">OPTIONAL ORGAN LINK</text>
+<text class="card" text-anchor="middle" x="616" y="1154.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1154.0">N</text>
+<rect class="row" x="28" y="1225" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1243" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1268">ORGANS</text>
+<text class="key" x="68" y="1290">organ_id PK</text>
+<rect class="box" x="1308" y="1243" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1268">ALLOCATIONS</text>
+<text class="key" x="1324" y="1290">organ_id FK, UNIQUE</text>
+<line class="line" x1="562" y1="1273.0" x2="825.0" y2="1273.0"/>
+<line class="line" x1="1085.0" y1="1273.0" x2="1308" y2="1273.0"/>
+<path class="diamond" d="M955,1245.0 L1085.0,1273.0 L955,1301.0 L825.0,1273.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1278.0">ALLOCATED ONCE</text>
+<text class="card" text-anchor="middle" x="616" y="1262.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1262.0">0..1</text>
+<rect class="row" x="28" y="1333" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1351" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1376">RECIPIENTS</text>
+<text class="key" x="68" y="1398">recipient_id PK</text>
+<rect class="box" x="1308" y="1351" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1376">ALLOCATIONS</text>
+<text class="key" x="1324" y="1398">recipient_id FK</text>
+<line class="line" x1="562" y1="1381.0" x2="825.0" y2="1381.0"/>
+<line class="line" x1="1085.0" y1="1381.0" x2="1308" y2="1381.0"/>
+<path class="diamond" d="M955,1353.0 L1085.0,1381.0 L955,1409.0 L825.0,1381.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1386.0">RECEIVES</text>
+<text class="card" text-anchor="middle" x="616" y="1370.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1370.0">N</text>
+<rect class="row" x="28" y="1441" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1459" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1484">HOSPITALS</text>
+<text class="key" x="68" y="1506">hospital_id PK</text>
+<rect class="box" x="1308" y="1459" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1484">ALLOCATIONS</text>
+<text class="key" x="1324" y="1506">hospital_id FK</text>
+<line class="line" x1="562" y1="1489.0" x2="825.0" y2="1489.0"/>
+<line class="line" x1="1085.0" y1="1489.0" x2="1308" y2="1489.0"/>
+<path class="diamond" d="M955,1461.0 L1085.0,1489.0 L955,1517.0 L825.0,1489.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1494.0">RECIPIENT HOSPITAL</text>
+<text class="card" text-anchor="middle" x="616" y="1478.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1478.0">N</text>
+<rect class="row" x="28" y="1549" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1567" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1592">ORGANS</text>
+<text class="key" x="68" y="1614">organ_id PK</text>
+<rect class="box" x="1308" y="1567" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1592">RESOURCE_LOCKS</text>
+<text class="key" x="1324" y="1614">organ_id PK, FK</text>
+<line class="line" x1="562" y1="1597.0" x2="825.0" y2="1597.0"/>
+<line class="line" x1="1085.0" y1="1597.0" x2="1308" y2="1597.0"/>
+<path class="diamond" d="M955,1569.0 L1085.0,1597.0 L955,1625.0 L825.0,1597.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1602.0">LOCKED BY</text>
+<text class="card" text-anchor="middle" x="616" y="1586.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1586.0">0..1</text>
+<rect class="row" x="28" y="1657" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1675" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1700">HOSPITALS</text>
+<text class="key" x="68" y="1722">hospital_id PK</text>
+<rect class="box" x="1308" y="1675" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1700">RESOURCE_LOCKS</text>
+<text class="key" x="1324" y="1722">hospital_id FK</text>
+<line class="line" x1="562" y1="1705.0" x2="825.0" y2="1705.0"/>
+<line class="line" x1="1085.0" y1="1705.0" x2="1308" y2="1705.0"/>
+<path class="diamond" d="M955,1677.0 L1085.0,1705.0 L955,1733.0 L825.0,1705.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1710.0">LOCK OWNER</text>
+<text class="card" text-anchor="middle" x="616" y="1694.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1694.0">N</text>
+<rect class="row" x="28" y="1765" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1783" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1808">HOSPITALS</text>
+<text class="key" x="68" y="1830">hospital_id PK</text>
+<rect class="box" x="1308" y="1783" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1808">HOSPITAL_DISTANCES</text>
+<text class="key" x="1324" y="1830">from/to hospital_id PK, FK</text>
+<line class="line" x1="562" y1="1813.0" x2="825.0" y2="1813.0"/>
+<line class="line" x1="1085.0" y1="1813.0" x2="1308" y2="1813.0"/>
+<path class="diamond" d="M955,1785.0 L1085.0,1813.0 L955,1841.0 L825.0,1813.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1818.0">DISTANCE FROM / TO</text>
+<text class="card" text-anchor="middle" x="616" y="1802.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1802.0">N</text>
+<rect class="row" x="28" y="1873" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1891" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="1916">HOSPITALS</text>
+<text class="key" x="68" y="1938">hospital_id PK</text>
+<rect class="box" x="1308" y="1891" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="1916">NOTIFICATIONS</text>
+<text class="key" x="1324" y="1938">hospital_id FK</text>
+<line class="line" x1="562" y1="1921.0" x2="825.0" y2="1921.0"/>
+<line class="line" x1="1085.0" y1="1921.0" x2="1308" y2="1921.0"/>
+<path class="diamond" d="M955,1893.0 L1085.0,1921.0 L955,1949.0 L825.0,1921.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="1926.0">RECEIVES</text>
+<text class="card" text-anchor="middle" x="616" y="1910.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="1910.0">N</text>
+<rect class="row" x="28" y="1981" width="1844" height="96" rx="8"/>
+<rect class="box" x="52" y="1999" width="510" height="60" rx="2"/>
+<text class="name" x="68" y="2024">HOSPITALS</text>
+<text class="key" x="68" y="2046">hospital_id PK</text>
+<rect class="box" x="1308" y="1999" width="510" height="60" rx="2"/>
+<text class="name" x="1324" y="2024">ALLOCATION_EVENTS</text>
+<text class="key" x="1324" y="2046">hospital_id FK, nullable</text>
+<line class="line" x1="562" y1="2029.0" x2="825.0" y2="2029.0"/>
+<line class="line" x1="1085.0" y1="2029.0" x2="1308" y2="2029.0"/>
+<path class="diamond" d="M955,2001.0 L1085.0,2029.0 L955,2057.0 L825.0,2029.0 Z"/>
+<text class="rt" text-anchor="middle" x="955" y="2034.0">EVENT CONTEXT</text>
+<text class="card" text-anchor="middle" x="616" y="2018.0">1</text>
+<text class="card" text-anchor="middle" x="1130.0" y="2018.0">N</text>
+</svg>
