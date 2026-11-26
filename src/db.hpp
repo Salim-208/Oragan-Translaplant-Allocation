@@ -22,10 +22,14 @@ class Db {
 public:
     Db() {
         const char* url = std::getenv("DATABASE_URL");
+<<<<<<< HEAD
         // Use IPv4 explicitly: on some Windows/Docker Desktop setups `localhost`
         // resolves to ::1 first, where the PostgreSQL port proxy may close the
         // connection even though the IPv4 port mapping is healthy.
         conn = PQconnectdb(url ? url : "postgresql://postgres:postgres@127.0.0.1:5433/organ_allocation");
+=======
+        conn = PQconnectdb(url ? url : "postgresql://postgres:postgres@localhost:5433/organ_allocation");
+>>>>>>> c8c39cd3f83ae965361b95e09e525a0ecec1b0dc
         if (PQstatus(conn) != CONNECTION_OK) fail(PQerrorMessage(conn));
     }
     ~Db() { PQfinish(conn); }
@@ -70,6 +74,7 @@ inline Json body(const httplib::Request& req) { Json d = Json::parse(req.body, n
 inline void send(httplib::Response& res, int status, const Json& val) { res.status = status; res.set_content(val.dump(), "application/json"); }
 
 using Handler = std::function<Json(Db&, const httplib::Request&)>;
+<<<<<<< HEAD
 inline Json sessionFor(Db& db, const httplib::Request& req) {
     const std::string auth = req.get_header_value("Authorization");
     const std::string prefix = "Bearer ";
@@ -81,6 +86,11 @@ inline Json sessionFor(Db& db, const httplib::Request& req) {
 inline httplib::Server::Handler route(Handler action, const std::string& requiredRole = "admin") {
     return [action, requiredRole](const httplib::Request& req, httplib::Response& res) {
         try { Db db; Json s=sessionFor(db,req); if(s["role"]!=requiredRole) throw Error(403,"This account cannot access this area"); send(res, 200, action(db, req)); }
+=======
+inline httplib::Server::Handler route(Handler action) {
+    return [action](const httplib::Request& req, httplib::Response& res) {
+        try { Db db; send(res, 200, action(db, req)); }
+>>>>>>> c8c39cd3f83ae965361b95e09e525a0ecec1b0dc
         catch (const Error& e) { send(res, e.status, {{"error", e.what()}}); }
         catch (const std::exception& e) { send(res, 500, {{"error", e.what()}}); }
     };
@@ -96,8 +106,13 @@ inline void transaction(Db& db, const std::function<void()>& work) {
 }
 
 inline std::string idText(const Json& id, const std::string& ifNull = "") { return id.is_null() ? ifNull : id.get<std::string>(); }
+<<<<<<< HEAD
 inline std::string publicId(const std::string& prefix, const std::string& id) {
     return prefix + "-TR-" + std::string(id.size() < 5 ? 5 - id.size() : 0, '0') + id;
 }
 inline double num(const Json& row, const char* key) { return std::stod(row[key].get<std::string>()); }
 inline std::string demoCount(Db& db) { return db.one("SELECT count(*) AS n FROM recipients WHERE name LIKE '%(Training)'")["n"]; }
+=======
+inline double num(const Json& row, const char* key) { return std::stod(row[key].get<std::string>()); }
+inline std::string demoCount(Db& db) { return db.one("SELECT count(*) AS n FROM recipients WHERE name LIKE 'Demo Patient %'")["n"]; }
+>>>>>>> c8c39cd3f83ae965361b95e09e525a0ecec1b0dc
